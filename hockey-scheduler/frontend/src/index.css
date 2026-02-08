@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  /* D-mon Brand Colors */
+  --color-dmon-blue: #054a8f;
+  --color-dmon-red: #b6321b;
+  --color-dmon-gold: #baa369;
+  --color-dmon-slate: #36526d;
+  --color-dmon-bg: #f0f2f5;
+}
