@@ -6,6 +6,40 @@ Built with **Timefold Solver** (constraint satisfaction AI) and a modern full-st
 
 ---
 
+## Project Structure
+
+```
+dmon-scheduler/
+├── CLAUDE.md                  # AI knowledge base for Timefold development
+├── README.md
+├── docs/timefold-reference/   # Condensed Timefold reference guides
+├── timefold-scheduling/       # 7 working Timefold quickstart examples
+│   └── examples/
+│       ├── employee-scheduling/
+│       ├── school-timetabling/
+│       ├── flight-crew-scheduling/
+│       ├── conference-scheduling/
+│       ├── meeting-scheduling/
+│       ├── bed-allocation/
+│       └── task-assigning/
+└── hockey-scheduler/          # The hockey training scheduler application
+    ├── backend/               # Quarkus + Timefold Solver (Java 17)
+    └── frontend/              # React + TypeScript + Tailwind CSS v4
+```
+
+### CLAUDE.md — AI-Assisted Development
+
+This project uses a comprehensive `CLAUDE.md` file that serves as a knowledge base for AI-assisted development with [Claude Code](https://claude.ai/). It contains:
+
+- Timefold Solver modeling patterns, constraint stream recipes, and annotation references
+- Links to 7 ground-truth quickstart examples in `timefold-scheduling/examples/`
+- Common pitfalls, troubleshooting guides, and import cheat sheets
+- A constraint catalog covering common scheduling use cases
+
+This enables Claude to generate correct Timefold code by referencing real working examples rather than relying on training data alone.
+
+---
+
 ## 🎯 Problem Statement
 
 A field hockey club needs to schedule weekly training sessions for multiple teams on a shared field. The system must:
@@ -138,7 +172,7 @@ Each integration test verifies:
 
 **Run tests:**
 ```bash
-cd backend
+cd hockey-scheduler/backend
 mvn test
 ```
 
@@ -160,7 +194,7 @@ cd dmon-scheduler
 
 ### 2. Start the Backend (Quarkus + Timefold)
 ```bash
-cd backend
+cd hockey-scheduler/backend
 mvn quarkus:dev
 ```
 
@@ -178,7 +212,7 @@ The backend starts on **http://localhost:8080**
 
 ### 3. Start the Frontend (React + Vite)
 ```bash
-cd frontend
+cd hockey-scheduler/frontend
 npm install
 npm run dev
 ```
@@ -241,7 +275,7 @@ All hard constraints satisfied + good soft score (minimal gaps, preferred traine
 
 ## 🔧 Configuration
 
-### Backend (`backend/src/main/resources/application.properties`)
+### Backend (`hockey-scheduler/backend/src/main/resources/application.properties`)
 
 ```properties
 # Solver termination
@@ -261,7 +295,7 @@ quarkus.log.category."ai.timefold.solver".level=INFO
 - Development: 30 seconds
 - Tests: 5 seconds
 
-### Frontend (`frontend/src/api/scheduleApi.ts`)
+### Frontend (`hockey-scheduler/frontend/src/api/scheduleApi.ts`)
 
 ```typescript
 const BASE_URL = 'http://localhost:8080/schedule';
@@ -275,23 +309,23 @@ Change `BASE_URL` for production deployment.
 
 ### Backend (Native Binary with GraalVM)
 ```bash
-cd backend
+cd hockey-scheduler/backend
 mvn package -Dnative
 ./target/hockey-scheduler-1.0-SNAPSHOT-runner
 ```
 
 ### Backend (JVM JAR)
 ```bash
-cd backend
+cd hockey-scheduler/backend
 mvn package
 java -jar target/quarkus-app/quarkus-run.jar
 ```
 
 ### Frontend (Static Assets)
 ```bash
-cd frontend
+cd hockey-scheduler/frontend
 npm run build
-# Output: frontend/dist/
+# Output: hockey-scheduler/frontend/dist/
 # Serve with nginx, Apache, or CDN
 ```
 
@@ -386,7 +420,7 @@ MIT License — See LICENSE file for details
 ## 👥 Authors
 
 - **Bavo Bruylandt** ([@bavobbr](https://github.com/bavobbr))
-- Built with assistance from **Claude Sonnet 4.5** (Anthropic)
+- Built with assistance from **Claude** (Anthropic) — Sonnet 4.5 & Opus 4.6
 
 ---
 
