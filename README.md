@@ -426,6 +426,5 @@ MIT License — See LICENSE file for details
 
 ## 🙏 Acknowledgments
 
-- **Timefold team** for the excellent constraint solver and documentation
-- **OptaPlanner community** for pioneering open-source constraint satisfaction
-- Field hockey clubs worldwide for the real-world scheduling challenges that inspired this project
+- **Timefold team** ([Timefold.ai](https://timefold.ai/)) for the excellent constraint solver and documentation
+- **DMON hockey team** ([dmon.be](https://dmon.be/))
